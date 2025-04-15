@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>AgriCare</title>
+  <meta name="description" content="AgriCare: Platform inovatif untuk mengidentifikasi penyakit daun padi.">
+  <meta name="keywords" content="pertanian, padi, kesehatan tanaman, identifikasi penyakit, AgriCare">
+
+  <!-- Favicons -->
+  <link href="{{ url_for('static', filename='assets/img/favicon.png') }}" rel="icon">
+  <link href="{{ url_for('static', filename='assets/img/icon.png') }}" rel="icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Marcellus:wght@400&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/aos/aos.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{{ url_for('static', filename='assets/css/main.css') }}" rel="stylesheet">
+
+  <!-- JavaScript Files -->
+  <script src="{{ url_for('static', filename='assets/js/script.js') }}"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <!-- =======================================================
+  * Template Name: AgriCulture
+  * Template URL: https://bootstrapmade.com/agriculture-bootstrap-website-template/
+  * Updated: Aug 07 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="about-page">
+
+  <header id="header" class="header d-flex align-items-center position-relative">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="{{ url_for('home') }}" class="logo d-flex align-items-center">
+        <img src="{{ url_for('static', filename='assets/img/logo.png') }}" alt="AgriCare" class="img-fluid">
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="{{ url_for('home') }}"><i class="bi bi-house-door"></i> Home</a></li>
+          <li><a href="{{ url_for('about') }}" class="active"><i class="bi bi-info-circle"></i> About</a></li>
+          <li><a href="{{ url_for('check') }}"><i class="bi bi-search"></i> Check</a></li>
+          <li><a href="{{ url_for('contact') }}"><i class="bi bi-person"></i> Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+   <!-- Bottom Navbar untuk Mobile -->
+   <nav class="bottom-nav d-lg-none">
+    <a href="{{ url_for('home') }}" class="nav-item">
+        <i class="fas fa-home"></i>
+    </a>
+    <a href="{{ url_for('about') }}" class="nav-item">
+        <i class="fas fa-info-circle"></i>
+    </a>
+    <a href="{{ url_for('check') }}" class="nav-item">
+        <i class="fas fa-search"></i>
+    </a>
+    <a href="{{ url_for('contact') }}" class="nav-item">
+        <i class="fas fa-user"></i>
+    </a>
+  </nav>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title dark-background" data-aos="fade" style="background-image: url('{{ url_for('static', filename='assets/img/bglagi.webp') }}');">
+      <div class="container position-relative">
+        <h1>AgriCare</h1>
+        <p>Website inovatif yang dirancang untuk mengidentifikasi jenis penyakit pada daun padi dengan lebih akurat dan efisien. Website ini memberikan kemudahan bagi pengguna untuk memperoleh informasi mendetail tentang kesehatan dan berbagai jenis penyakit yang dapat menyerang daun padi, sehingga mendukung pengambilan keputusan yang tepat dalam pengelolaan tanaman padi.</p>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- About AgriCare Section -->
+    <section id="about-2" class="about-2 section" style="padding: 60px 0;">
+      <div class="container">
+        <div class="row gy-4 justify-content-center align-items-center">
+          <div class="col-lg-6 order-lg-1 position-relative" data-aos="zoom-out">
+            <img src="{{ url_for('static', filename='assets/img/itu.jpeg') }}" alt="Tentang AgriCare" class="img-fluid" style="width: 100%; height: auto;">
+          </div>
+          <div class="col-lg-6 order-lg-2" data-aos="fade-up" data-aos-delay="100">
+            <h2 class="content-title mb-4 text-center">About AgriCare</h2>
+            <p class="mb-4" style="text-align: justify;">
+              AgriCare adalah sebuah platform berbasis web yang dikembangkan untuk membantu petani, peneliti, dan pihak terkait dalam mendeteksi penyakit pada daun padi dengan lebih cepat dan akurat. Dengan meningkatnya tantangan dalam pertanian, seperti penyebaran penyakit tanaman yang dapat menurunkan hasil panen, teknologi menjadi solusi efektif untuk mendukung pertanian modern. AgriCare hadir sebagai alat inovatif yang memanfaatkan Computer Vision untuk menganalisis gambar daun padi dan mengidentifikasi potensi penyakit dengan tingkat akurasi tinggi. Pengguna hanya perlu mengunggah gambar daun padi yang ingin diperiksa, dan sistem akan secara otomatis menganalisis serta menampilkan informasi mengenai jenis penyakit yang terdeteksi. Dengan kemudahan penggunaan dan kecepatan deteksi, AgriCare dapat membantu petani dalam mengambil langkah pencegahan dan pengendalian penyakit secara lebih dini, sehingga hasil pertanian dapat lebih terjaga dan produktivitas meningkat.</p>
+          </div>
+        </div>
+      </div>
+    </section><!-- /Tentang AgriCare Section -->
+
+    <!-- About 3 Section -->
+    <section id="about-3" class="about-3 section">
+      <div class="container">
+        <div class="row gy-4 justify-content-between align-items-center">
+          <div class="col-lg-6 order-lg-2 position-relative" data-aos="zoom-out">
+            <img src="{{ url_for('static', filename='assets/img/img1.webp') }}" alt="Image" class="img-fluid">
+            <a href="https://youtu.be/jQbSdrMkar0?si=sDOiU0NicViAiqeD" class="glightbox pulsating-play-btn">
+              <span class="play"><i class="bi bi-play-fill"></i></span>
+            </a>
+          </div>
+          <div class="col-lg-5 order-lg-1" data-aos="fade-up" data-aos-delay="100">
+            <h2 class="content-title mb-4">Tutorial Penggunaan Aplikasi</h2>
+            <p class="mb-4">
+              Untuk memudahkan pengguna dalam menggunakan aplikasi ini, silahkan tonton tutorial yang disediakan pada video atau klik pada tautan yang disediakan.
+            </p>
+            <p><a href="https://youtu.be/jQbSdrMkar0" class="btn-cta" target="_blank">Get in touch</a></p>
+          </div>
+        </div>
+      </div>
+    </section><!-- /About 3 Section -->
+    
+
+    <div class="copyright text-center">
+      <div class="container d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-center">
+
+        <div class="d-flex flex-column align-items-center align-items-lg-start">
+          <div>
+            © Copyright <strong><span>Guswita Helmi</span></strong>. All Rights Reserved
+          </div>
+        </div>
+
+        <div class="social-links order-first order-lg-last mb-3 mb-lg-0">
+          <a href="https://x.com/GuswitaHelmi" target="_blank" title="Twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="https://github.com/Witaaaaaa" target="_blank" title="Github"><i class="bi bi-github"></i></a>
+          <a href="https://www.instagram.com/__gwhwita" target="_blank" title="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/guswita-helmi-g01w01h/" target="_blank" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <script src="{{ url_for('static', filename='assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/php-email-form/validate.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/aos/aos.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+
+  <!-- Main JS File -->
+  <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+
+</body>
+
+</html>

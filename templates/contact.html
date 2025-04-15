@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>AgriCare</title>
+  <meta name="description" content="AgriCare: Platform inovatif untuk mengidentifikasi penyakit daun padi.">
+  <meta name="keywords" content="pertanian, padi, kesehatan tanaman, identifikasi penyakit, AgriCare">
+
+  <!-- Favicons -->
+  <link href="{{ url_for('static', filename='assets/img/favicon.png') }}" rel="icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Marcellus:wght@400&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/aos/aos.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{{ url_for('static', filename='assets/css/main.css') }}" rel="stylesheet">
+
+  <!-- JavaScript Files -->
+  <script src="{{ url_for('static', filename='assets/js/script.js') }}"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <!-- =======================================================
+  * Template Name: AgriCulture
+  * Template URL: https://bootstrapmade.com/agriculture-bootstrap-website-template/
+  * Updated: Aug 07 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="check-page" style="background-color: white;">
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="spinner"></div>
+  </div>
+
+  <header id="header" class="header d-flex align-items-center position-relative">
+    <div class="container d-flex align-items-center justify-content-between" style="background-color: white;">
+      <a href="{{ url_for('home') }}" class="logo d-flex align-items-center">
+        <img src="{{ url_for('static', filename='assets/img/logo.png') }}" alt="AgriCare">
+      </a>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="{{ url_for('home') }}"><i class="bi bi-house-door"></i> Home</a></li>
+          <li><a href="{{ url_for('about') }}"><i class="bi bi-info-circle"></i> About</a></li>
+          <li><a href="{{ url_for('check') }}"><i class="bi bi-search"></i> Check</a></li>          
+          <li><a href="{{ url_for('contact') }}" class="active"><i class="bi bi-person"></i> Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Bottom Navbar untuk Mobile -->
+  <nav class="bottom-nav d-lg-none">
+    <a href="{{ url_for('home') }}" class="nav-item">
+        <i class="fas fa-home"></i>
+    </a>
+    <a href="{{ url_for('about') }}" class="nav-item">
+        <i class="fas fa-info-circle"></i>
+    </a>
+    <a href="{{ url_for('check') }}" class="nav-item">
+        <i class="fas fa-search"></i>
+    </a>
+    <a href="{{ url_for('contact') }}" class="nav-item">
+        <i class="fas fa-user"></i>
+    </a>
+  </nav>
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title dark-background" data-aos="fade" style="background-image: url('{{ url_for('static', filename='assets/img/bglagi.webp') }}');">
+      <div class="container position-relative">
+        <h1>Contact</h1>
+        <p>Hubungi kami untuk informasi lebih lanjut mengenai AgriCare. Kami siap membantu Anda dalam mengidentifikasi penyakit pada daun padi dengan teknologi terbaru.</p>
+      </div>
+    </div><!-- End Page Title -->
+
+   <!-- Developer Section -->
+<section id="developer" class="developer-section py-1" >
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card p-4 shadow-sm border-0">
+          <div class="row align-items-center">
+            <!-- Foto Developer -->
+            <div class="col-md-4 text-center">
+              <img src="{{ url_for('static', filename='assets/img/author.jpg') }}" 
+                   alt="Foto Developer" 
+                   class="img-fluid rounded" 
+                   style="width: 100%; aspect-ratio: 1/1; object-fit: cover;">
+            </div>
+            <!-- Informasi Developer -->
+            <div class="col-md-8">
+              <h4 class="fw-bold">Guswita Helmi</h4>
+              <h5 class="text-muted">Developer AgriCare</h5>
+              <p class="text-justify">Guswita Helmi adalah seorang mahasiswa semester akhir yang sedang mengembangkan aplikasi AgriCare sebagai bagian dari tugas akhirnya. Aplikasi ini bertujuan untuk membantu petani dalam mendeteksi penyakit pada daun padi dengan memanfaatkan teknologi computer vision dan machine learning.</p>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact-section py-1"> 
+  <div class="container-fluid">
+    <div class="row no-gutters">
+      <!-- Bagian Kiri (Hijau) -->
+      <div class="col-md-6 text-center left-section">
+        <div class="logo-background p-3 mb-3">
+          <img src="{{ url_for('static', filename='assets/img/logo.png') }}" alt="AgriCare Logo" class="img-fluid">
+          <p style="color:white">hubungi kami jika anda tertarik dengan agricare</p>
+        </div>
+      </div>
+      <!-- Bagian Kanan (Putih) -->
+      <div class="col-md-6 text-center right-section">
+        <div class="row no-gutters logo-background p-3 mb-3" style="background-color:rgb(104, 104, 104);">
+          <div class="col-md-6 contact-method mb-3 left-section">
+            <a href="https://wa.me/6285374201272" target="_blank" style="color: white; text-decoration: none;">
+              <i class="bi bi-whatsapp" style="font-size: 2rem; color: #25D366;"></i>
+              <p>whatsapp</p>
+            </a>
+          </div>
+          <div class="col-md-6 contact-method mb-3 right-section">
+            <a href="mailto:gwhelwita@gmail.com" style="color: white; text-decoration: none;">
+              <i class="bi bi-envelope" style="font-size: 2rem; color: #EA4335;"></i>
+              <p>email</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Contact Section -->   
+ 
+    <footer class="d-flex flex-column align-items-center align-items-lg-start" style="background-color: #f8f9fa;">
+      <div class="container d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-center">
+        <div class="d-flex flex-column align-items-center align-items-lg-start">
+          <div>© Copyright <strong><span>Guswita Helmi</span></strong>. All Rights Reserved</div>
+        </div>
+        <div class="social-links order-first order-lg-last mb-3 mb-lg-0">
+          <a href="https://x.com/GuswitaHelmi" target="_blank" title="Twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="https://github.com/Witaaaaaa" target="_blank" title="Github"><i class="bi bi-github"></i></a>
+          <a href="https://www.instagram.com/__gwhwita" target="_blank" title="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/guswita-helmi-g01w01h/" target="_blank" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+    </footer>
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  </main>
+  <!-- Vendor JS Files -->
+  <script src="{{ url_for('static', filename='assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/php-email-form/validate.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/aos/aos.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+  <!-- Main JS File -->
+  <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+  <!-- JavaScript to hide the preloader once the page is fully loaded -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var preloader = document.getElementById('preloader');
+      preloader.style.display = 'none';
+    });
+  </script>
+  <!-- CSS for the loading spinner -->
+  <style>
+    #preloader {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .spinner {
+      border: 16px solid #f3f3f3;
+      border-top: 16px solid #3498db;
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      animation: spin 2s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .square-photo {
+      border-radius: 0;
+      width: 150px; /* Adjust the width as needed */
+      height: 150px; /* Adjust the height as needed */
+      object-fit: cover;
+    }
+    .text-justify {
+      text-align: justify;
+    }
+    .text-center {
+      text-align: center;
+    }
+    .logo-background {
+      background-color: #28a745; /* Green background color */
+      border-radius: 10px;
+    }
+    .contact-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px; /* Added padding */
+      
+    }
+    .row.no-gutters {
+      margin-right: 0;
+      margin-left: 0;
+    }
+    .left-section {
+      color: black;
+      padding: 50px 20px;
+    }
+    .right-section {
+      color: white;
+      padding: 50px 20px;
+    }
+    .logo-background img {
+      max-width: 150px;
+    }
+  </style>
+</body>
+</html>

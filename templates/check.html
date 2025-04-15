@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>AgriCare</title>
+  <meta name="description" content="AgriCare: Platform inovatif untuk mengidentifikasi penyakit daun padi.">
+  <meta name="keywords" content="pertanian, padi, kesehatan tanaman, identifikasi penyakit, AgriCare">
+
+  <!-- Favicons -->
+  <link href="{{ url_for('static', filename='assets/img/favicon.png') }}" rel="icon">
+  <link href="{{ url_for('static', filename='assets/img/icon.png') }}" rel="icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Marcellus:wght@400&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/aos/aos.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{{ url_for('static', filename='assets/css/main.css') }}" rel="stylesheet">
+
+  <!-- JavaScript Files -->
+  <script src="{{ url_for('static', filename='assets/js/script.js') }}"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <!-- =======================================================
+  * Template Name: AgriCulture
+  * Template URL: https://bootstrapmade.com/agriculture-bootstrap-website-template/
+  * Updated: Aug 07 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="check-page">
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <header id="header" class="header d-flex align-items-center position-relative">
+    <div class="container d-flex align-items-center justify-content-between">
+      <a href="{{ url_for('home') }}" class="logo d-flex align-items-center">
+        <img src="{{ url_for('static', filename='assets/img/logo.png') }}" alt="AgriCare">
+      </a>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="{{ url_for('home') }}"><i class="bi bi-house-door"></i> Home</a></li>
+          <li><a href="{{ url_for('about') }}"><i class="bi bi-info-circle"></i> About</a></li>
+          <li><a href="{{ url_for('check') }}" class="active"><i class="bi bi-search"></i> Check</a></li>
+          <!-- Remove Services -->
+          <li><a href="{{ url_for('contact') }}"><i class="bi bi-person"></i> Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Bottom Navbar untuk Mobile -->
+  <nav class="bottom-nav d-lg-none">
+    <a href="{{ url_for('home') }}" class="nav-item">
+        <i class="fas fa-home"></i>
+    </a>
+    <a href="{{ url_for('about') }}" class="nav-item">
+        <i class="fas fa-info-circle"></i>
+    </a>
+    <a href="{{ url_for('check') }}" class="nav-item">
+        <i class="fas fa-search"></i>
+    </a>
+    <!-- Remove Services -->
+    <a href="{{ url_for('contact') }}" class="nav-item">
+        <i class="fas fa-user"></i>
+    </a>
+  </nav>
+
+  <!-- HTML untuk Kamera -->
+<main class="main">
+  <div class="container mt-5 text-center">
+      <h1>Deteksi Penyakit Daun Padi</h1>
+      <p>Pilih metode input gambar untuk analisis.</p>
+
+      <!-- Pilihan Kamera -->
+      <div class="d-flex justify-content-center gap-3 mb-4">
+        <button class="btn btn-primary" onclick="openCamera()">Camera</button>
+        <button class="btn btn-video" onclick="openVideo()">Video</button>
+      </div>
+
+      <!-- Modal Kamera -->
+      <div id="camera-modal" class="modal" style="display: none;">
+        <button id="close-camera" class="close-btn">&times;</button>
+        <div class="camera-container">
+          <video id="camera" playsinline autoplay></video>
+          <div class="d-flex justify-content-center gap-2 mt-3">
+            <button id="capture" class="btn btn-danger">Capture</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Video -->
+      <div id="video-modal" class="modal" style="display: none;">
+        <button id="close-video" class="close-btn" onclick="closeVideo()">&times;</button>
+        <div class="video-container">
+          <img id="video-detection" alt="Video Stream" style="width: 100%; max-height: 80vh;">
+          <div class="d-flex justify-content-center gap-2 mt-3">
+            <button class="btn btn-danger" onclick="stopVideo()">Berhenti</button>
+            <button class="btn btn-success" onclick="saveVideoFrame()">Simpan</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hasil Deteksi -->
+      <div id="result-container" class="mt-4" style="display: none;">
+          <h2>Hasil Deteksi:</h2>
+          <img id="detected-image" class="img-fluid" alt="Detected Image">
+          <p id="accuracy" class="text-center mt-2"></p>
+      </div>
+
+      <!-- Form Upload -->
+      <form id="upload-form" enctype="multipart/form-data">
+          <div class="d-flex justify-content-center align-items-center gap-2">
+              <input type="file" name="file" id="file-input" accept="image/*" class="form-control w-auto" required>
+              <button type="submit" class="btn btn-success">Upload</button>
+          </div>
+      </form>
+
+      <!-- Area Hasil -->
+      <div id="upload-result-container" style="display: none;">
+          <h3>Hasil Upload</h3>
+          <img id="upload-detected-image" alt="Uploaded Image">
+          <p id="upload-accuracy" class="text-center mt-2"></p>
+      </div>
+  </div>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+
+<script>
+  let videoStream = null;
+
+  function openCamera() {
+    let modal = document.getElementById("camera-modal");
+    modal.style.display = "flex";
+
+    let video = document.getElementById("camera");
+
+    console.log("Membuka kamera...");
+
+    navigator.mediaDevices.getUserMedia({ video: true })
+        .then(stream => {
+            videoStream = stream;
+            video.srcObject = stream;
+            console.log("Kamera berhasil dibuka.");
+        })
+        .catch(err => {
+            console.error("Error mengaktifkan kamera: ", err);
+            alert("Gagal membuka kamera. Pastikan kamera Anda terhubung dan izinkan akses kamera.");
+        });
+  }
+
+  function closeCamera() {
+    let modal = document.getElementById("camera-modal");
+    modal.style.display = "none";
+
+    if (videoStream) {
+        videoStream.getTracks().forEach(track => track.stop());
+        videoStream = null;
+    }
+  }
+
+  function captureImage() {
+    let video = document.getElementById("camera");
+    let canvas = document.createElement("canvas");
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    let context = canvas.getContext("2d");
+    context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+    let imageData = canvas.toDataURL("image/png");
+
+    fetch("/check", {
+        method: "POST",
+        body: JSON.stringify({ image: imageData }),
+        headers: { "Content-Type": "application/json" }
+    })
+    .then(response => response.json())
+    .then(result => {
+        if (result.image) {
+            document.getElementById("detected-image").src = result.image;
+            document.getElementById("result-container").style.display = "block";
+
+            let accuracyText = "";
+            result.detections.forEach(detection => {
+                let name = detection['name'].replace(/^Jenis Penyakit: Jenis Penyakit:/, "Jenis Penyakit:");
+                accuracyText += `${name} | Akurasi: ${(detection['confidence'] * 100).toFixed(2)}%<br>`;
+            });
+
+            document.getElementById("accuracy").innerHTML = accuracyText;
+        } else {
+            alert("Kesalahan: " + result.error);
+        }
+    })
+    .catch(error => console.error("Kesalahan:", error));
+
+    closeCamera();
+  }
+
+  document.getElementById("capture").addEventListener("click", captureImage);
+  document.getElementById("close-camera").addEventListener("click", closeCamera);
+
+  document.getElementById("upload-form").onsubmit = async (event) => {
+      event.preventDefault();
+
+      let formData = new FormData(event.target);
+
+      let response = await fetch("/check", {
+          method: "POST",
+          body: formData
+      });
+
+      let result = await response.json();
+
+      if (result.image) {
+          document.getElementById("upload-detected-image").src = result.image; // URL yang benar dari server
+          document.getElementById("upload-result-container").style.display = "block";
+
+          let accuracyText = "";
+          result.detections.forEach(detection => {
+              let name = detection['name'].replace(/^Jenis Penyakit: Jenis Penyakit:/, "Jenis Penyakit:");
+              accuracyText += `${name} | Akurasi: ${(detection['confidence'] * 100).toFixed(2)}%<br>`;
+          });
+
+          document.getElementById("upload-accuracy").innerHTML = accuracyText;
+      } else {
+          alert("Error: " + result.error);
+      }
+  };
+
+</script>
+
+  <script>
+    window.onload = function () {
+      let preloader = document.getElementById("preloader");
+      if (preloader) {
+        preloader.style.display = "none";
+      }
+    };
+  </script>
+  
+  <script>
+    let cameraStream = null; // Variabel untuk menyimpan stream video
+
+    function openCamera() {
+        let modal = document.getElementById("camera-modal");
+        let video = document.getElementById("camera");
+
+        modal.style.display = "flex"; // Tampilkan modal kamera
+        console.log("Membuka kamera...");
+
+        if (!cameraStream) {
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(function (stream) {
+                    cameraStream = stream;
+                    video.srcObject = stream;
+                    console.log("Kamera berhasil dibuka.");
+                })
+                .catch(function (err) {
+                    alert("Akses kamera ditolak atau gagal: " + err);
+                    console.error("Error kamera:", err);
+                    closeCamera();
+                });
+        }
+    }
+
+    function closeCamera() {
+        let modal = document.getElementById("camera-modal");
+        let video = document.getElementById("camera");
+
+        modal.style.display = "none"; // Sembunyikan modal kamera
+        console.log("Menutup kamera...");
+
+        if (cameraStream) {
+            cameraStream.getTracks().forEach(track => track.stop());
+            cameraStream = null;
+            console.log("Kamera berhasil dimatikan.");
+        }
+
+        video.srcObject = null;
+    }
+
+    function captureImage() {
+        let video = document.getElementById("camera");
+        if (!video.srcObject) {
+            alert("Capture success!");
+            return;
+        }
+
+        let canvas = document.createElement("canvas");
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        let context = canvas.getContext("2d");
+
+        // Pastikan video sudah berjalan sebelum menangkap gambar
+        if (video.readyState < 2) {
+            alert("Video belum siap!");
+            return;
+        }
+
+        context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+        let imageData = canvas.toDataURL("image/png");
+
+        // Tampilkan gambar hasil tangkapan
+        let capturedImage = document.getElementById("detected-image");
+        let resultContainer = document.getElementById("result-container");
+        capturedImage.src = imageData;
+        resultContainer.style.display = "block";
+
+        console.log("Gambar berhasil ditangkap!");
+        closeCamera();
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        let openCameraButton = document.getElementById("open-camera");
+        let closeCameraButton = document.getElementById("close-camera");
+        let captureButton = document.getElementById("capture");
+
+        if (openCameraButton) {
+            openCameraButton.addEventListener("click", openCamera);
+        }
+
+        if (closeCameraButton) {
+            closeCameraButton.addEventListener("click", closeCamera);
+        }
+
+        if (captureButton) {
+            captureButton.addEventListener("click", captureImage);
+        }
+    });
+
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+        alert("Browser Anda tidak mendukung akses kamera!");
+        console.error("navigator.mediaDevices.getUserMedia tidak tersedia");
+    }
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+      let uploadForm = document.getElementById("upload-form");
+      let fileInput = document.getElementById("file-input");
+
+      if (uploadForm) {
+          uploadForm.addEventListener("submit", async function (event) {
+              event.preventDefault(); // Cegah reload halaman
+
+              // Pastikan ada file yang dipilih
+              if (!fileInput.files.length) {
+                  alert("Silakan pilih gambar sebelum mengunggah!");
+                  return;
+              }
+
+              let formData = new FormData(uploadForm);
+
+              try {
+                  let response = await fetch("/check", {
+                      method: "POST",
+                      body: formData
+                  });
+
+                  if (!response.ok) {
+                      throw new Error(`HTTP error! status: ${response.status}`);
+                  }
+
+                  let result = await response.json();
+
+                  if (result.image) {
+                      document.getElementById("upload-detected-image").src = "/results/" + result.image;
+                      document.getElementById("upload-result-container").style.display = "block";
+
+                      let accuracyText = "";
+                      result.detections.forEach(detection => {
+                          let name = detection['name'].replace(/^Jenis Penyakit: Jenis Penyakit:/, "Jenis Penyakit:");
+                          accuracyText += `${name} | Akurasi: ${(detection['confidence'] * 100).toFixed(2)}%<br>`;
+                      });
+
+                      document.getElementById("upload-accuracy").innerHTML = accuracyText;
+                  } else {
+                      alert("Error: " + result.error);
+                  }
+              } catch (error) {
+                  console.error("Gagal mengunggah gambar:", error);
+                  alert("Terjadi kesalahan saat mengunggah gambar.");
+              }
+          });
+      }
+  });
+</script>
+
+
+</body>
+  </html>
+

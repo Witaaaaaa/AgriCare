@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>AgriCare</title>
+  <meta name="description" content="AgriCare: Platform inovatif untuk mengidentifikasi penyakit daun padi.">
+  <meta name="keywords" content="pertanian, padi, kesehatan tanaman, identifikasi penyakit, AgriCare">
+
+  <!-- Favicons -->
+  <link href="{{ url_for('static', filename='assets/img/favicon.png') }}" rel="icon">
+  <link href="{{ url_for('static', filename='assets/img/icon.png') }}" rel="icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Marcellus:wght@400&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/aos/aos.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{{ url_for('static', filename='assets/css/main.css') }}" rel="stylesheet">
+
+  <!-- JavaScript Files -->
+  <script src="{{ url_for('static', filename='assets/js/script.js') }}"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <!-- =======================================================
+  * Template Name: AgriCulture
+  * Template URL: https://bootstrapmade.com/agriculture-bootstrap-website-template/
+  * Updated: Aug 07 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="index-page">
+
+  <!-- 🔰 Splash Screen Section -->
+    <div id="splash-screen">
+      <div class="logo-container">
+          <div class="logo-left"></div>
+          <div class="logo-right"></div>
+      </div>
+  </div>
+
+  <!-- Main Content Wrapper (Disembunyikan Saat Splash Screen Aktif) -->
+  <div id="main-content" style="display: none;">
+  
+    <!-- Header Section -->
+    <header id="header" class="header d-flex align-items-center position-relative">
+      <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+        <a href="index.html" class="logo d-flex align-items-center">
+          <img src="{{ url_for('static', filename='assets/img/logo.png') }}" alt="AgriCare" class="img-fluid">
+        </a>
+
+        <nav id="navmenu" class="navmenu d-none d-lg-flex">
+          <ul>
+            <li><a href="{{ url_for('home') }}" class="active"><i class="bi bi-house-door"></i> Home</a></li>
+            <li><a href="{{ url_for('about') }}"><i class="bi bi-info-circle"></i> About</a></li>
+            <li><a href="{{ url_for('check') }}"><i class="bi bi-search"></i> Check</a></li>
+            <li><a href="{{ url_for('contact') }}"><i class="bi bi-person"></i> Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Bottom Navbar untuk Mobile -->
+    <nav class="bottom-nav d-lg-none">
+      <a href="{{ url_for('home') }}" class="nav-item">
+          <i class="fas fa-home"></i>
+      </a>
+      <a href="{{ url_for('about') }}" class="nav-item">
+          <i class="fas fa-info-circle"></i>
+      </a>
+      <a href="{{ url_for('check') }}" class="nav-item">
+          <i class="fas fa-search"></i>
+      </a>
+      <a href="{{ url_for('contact') }}" class="nav-item">
+          <i class="fas fa-user"></i>
+      </a>
+    </nav>
+    <main class="main">
+
+      <!-- Hero Section -->
+      <section id="hero" class="hero section dark-background">
+        <div id="hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+          <div class="carousel-item active">
+            <img src="{{ url_for('static', filename='assets/img/bg1.jpg') }}" alt="Background 1" class="d-block w-100">
+            <div class="carousel-container">
+              <h2>Pengembangan Aplikasi Deteksi Penyakit Pada Daun Padi Menggunakan Computer Vision Berbasis Python dan Yolo</h2>
+            </div>
+          </div><!-- End Carousel Item -->
+
+          <div class="carousel-item">
+            <img src="{{ url_for('static', filename='assets/img/bg2.jpeg') }}" alt="Background 2" class="d-block w-100">
+            <div class="carousel-container">
+              <h2>Mengidentifikasi Penyakit dengan Akurasi Tinggi</h2>
+              <p>Memanfaatkan teknologi computer vision dan YOLO untuk mendeteksi berbagai jenis penyakit pada daun padi dengan akurasi tinggi.</p>
+            </div>
+          </div><!-- End Carousel Item -->
+
+          <div class="carousel-item">
+            <img src="{{ url_for('static', filename='assets/img/bg3.jpg') }}" alt="Background 3" class="d-block w-100">
+            <div class="carousel-container">
+              <h2>Penggunaan Python dan YOLO dalam Deteksi</h2>
+              <p>Menggunakan Python sebagai bahasa pemrograman dan YOLO (You Only Look Once) untuk pengolahan gambar yang cepat dan akurat dalam mendeteksi penyakit.</p>
+            </div>
+          </div><!-- End Carousel Item -->
+
+          <div class="carousel-item">
+            <img src="{{ url_for('static', filename='assets/img/bg4.jpeg') }}" alt="Background 4" class="d-block w-100">
+            <div class="carousel-container">
+              <h2>Meningkatkan Produktivitas Pertanian</h2>
+              <p>Dengan aplikasi ini, petani dapat segera mengetahui penyakit pada tanaman padi dan melakukan tindakan tepat guna menghindari kerugian.</p>
+            </div>
+          </div><!-- End Carousel Item -->
+
+          <div class="carousel-item">
+            <img src="{{ url_for('static', filename='assets/img/bg5.jpeg') }}" alt="Background 5" class="d-block w-100">
+            <div class="carousel-container">
+              <h2>Solusi Inovatif Pertanian Digital</h2>
+              <p>Aplikasi berbasis teknologi modern untuk mendukung pertanian yang lebih efisien dan ramah lingkungan, memberikan solusi tepat untuk deteksi penyakit.</p>
+            </div>
+          </div><!-- End Carousel Item -->
+
+          <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+          </a>
+
+          <a class="carousel-control-next" href="#hero-carousel" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+          </a>
+
+          <div class="swiper-pagination"></div>
+        </div>
+      </section><!-- /Hero Section -->
+
+      <!-- Button Group Section -->
+      <section id="button-group" class="button-group section">
+        <div class="container">
+          <div class="section-title" data-aos="fade-up">
+            <h2>Penyakit Pada Daun Padi</h2>
+          </div>
+          <div class="d-flex justify-content-center p-3 bg-light" style="width: fit-content; margin: 0 auto;">
+            <button class="btn btn-custom" onclick="activateButton(this, 'blast')">Blast</button>
+            <button class="btn btn-custom" onclick="activateButton(this, 'blight')">Blight</button>
+            <button class="btn btn-custom" onclick="activateButton(this, 'brown_spot')">Brown Spot</button>
+            <button class="btn btn-custom" onclick="activateButton(this, 'healthy')">Healthy</button>
+            <button class="btn btn-custom" onclick="activateButton(this, 'tungro')">Tungro</button>
+          </div>
+          <div id="disease-info" class="mt-4" style="display: none; text-align: justify;">
+            <h3 id="disease-title"></h3>
+            <p id="disease-description"></p>
+          </div>
+        </div>
+      </section><!-- /Button Group Section -->
+
+      <!-- FAQ Section -->
+      <section id="faq" class="faq section" style="margin-top: 0;">
+        <div class="container">
+          <div class="section-title" data-aos="fade-up">
+            <h2>FAQ: Pertanyaan Seputar AgriCare</h2>
+          </div>
+          <div class="row gy-4 justify-content-between align-items-center">
+            <div class="col-lg-6 position-relative" data-aos="zoom-out">
+              <img src="{{ url_for('static', filename='assets/img/faq.jpg') }}" alt="FAQ Image" class="img-fluid faq-image">
+            </div>
+            <div class="col-lg-5" data-aos="fade-up" data-aos-delay="200">
+              <div class="faq-list">
+                <ul class="list-unstyled">
+                  <li class="faq-item">
+                    <i class="bi bi-agricare-icon question-icon"></i>
+                    <a data-bs-toggle="collapse" class="collapsed" data-bs-target="#faq1">Apa sih AgriCare itu? <i class="bi bi-chevron-right" style="float: right;"></i></a>
+                    <div id="faq1" class="collapse" data-bs-parent=".faq-list">
+                      <p>
+                        AgriCare itu kayak asisten AI buat para petani! Dengan teknologi canggih, AgriCare bisa langsung ngasih tahu penyakit yang menyerang daun padi hanya dari foto. Gampang banget, cukup unggah gambar, dan dalam hitungan detik, hasilnya keluar!
+                      </p>
+                    </div>
+                  </li>
+                  <li class="faq-item">
+                    <i class="bi bi-agricare-icon question-icon"></i>
+                    <a data-bs-toggle="collapse" class="collapsed" data-bs-target="#faq2">Kenapa AgriCare keren buat petani muda? <i class="bi bi-chevron-right" style="float: right;"></i></a>
+                    <div id="faq2" class="collapse" data-bs-parent=".faq-list">
+                      <p>
+                        AgriCare bikin semuanya lebih simpel! Gak perlu lagi nebak-nebak penyakit di daun padi, cukup upload foto, biarkan AI menganalisis, dan langsung dapat hasilnya. Makin cepat tahu masalahnya, makin cepat juga tanamanmu selamat.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="faq-item">
+                    <i class="bi bi-agricare-icon question-icon"></i>
+                    <a data-bs-toggle="collapse" class="collapsed" data-bs-target="#faq3">Gratis atau bayar nih? <i class="bi bi-chevron-right" style="float: right;"></i></a>
+                    <div id="faq3" class="collapse" data-bs-parent=".faq-list">
+                      <p>
+                        Tenang aja, AgriCare bisa dipakai GRATIS buat cek penyakit daun padi! Tapi kalau mau fitur ekstra seperti analisis lebih detail dan rekomendasi super akurat, ada opsi premium juga. Pilih yang sesuai kebutuhan kamu.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="faq-item">
+                    <i class="bi bi-agricare-icon question-icon"></i>
+                    <a data-bs-toggle="collapse" class="collapsed" data-bs-target="#faq4">Seberapa jago AI di AgriCare? <i class="bi bi-chevron-right" style="float: right;"></i></a>
+                    <div id="faq4" class="collapse" data-bs-parent=".faq-list">
+                      <p>
+                        Jago banget! AgriCare pakai teknologi Computer Vision yang bisa mendeteksi penyakit dengan akurasi sampai 95%! Jadi, makin yakin buat ngambil keputusan yang tepat buat tanamanmu.
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section><!-- /FAQ Section -->
+
+    </main>
+
+    <div class="copyright text-center">
+      <div class="container d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-center">
+
+        <div class="d-flex flex-column align-items-center align-items-lg-start">
+          <div>
+            © Copyright <strong><span>Guswita Helmi</span></strong>. All Rights Reserved
+          </div>
+        </div>
+
+        <div class="social-links order-first order-lg-last mb-3 mb-lg-0">
+          <a href="https://x.com/GuswitaHelmi" target="_blank" title="Twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="https://github.com/Witaaaaaa" target="_blank" title="Github"><i class="bi bi-github"></i></a>
+          <a href="https://www.instagram.com/__gwhwita" target="_blank" title="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/guswita-helmi-g01w01h/" target="_blank" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <script src="{{ url_for('static', filename='assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/php-email-form/validate.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/aos/aos.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+
+  <!-- Main JS File -->
+  <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+
+  <!-- Statistik Update Script -->
+  <script>
+    function updateStatistics() {
+        fetch('/api/statistics')  // Panggil API Flask
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("analisis").textContent = data.analisis;
+                document.getElementById("akurasi").textContent = data.akurasi + "%";
+                document.getElementById("petani").textContent = data.petani;
+                document.getElementById("jenis_penyakit").textContent = data.jenis_penyakit;
+            })
+            .catch(error => console.error('Error:', error));
+    }
+
+    // Panggil fungsi setiap 5 detik untuk update data
+    setInterval(updateStatistics, 5000);
+    updateStatistics(); // Panggil saat pertama kali halaman dimuat
+  </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let splashScreen = document.getElementById("splash-screen");
+            let mainContent = document.getElementById("main-content");
+
+            // Jika di desktop, langsung tampilkan website tanpa splash screen
+            if (window.innerWidth > 768) {
+                splashScreen.style.display = "none";
+                mainContent.style.display = "block";
+            } else {
+                splashScreen.style.display = "flex";
+                mainContent.style.display = "none";
+
+                // Tampilkan splash screen selama 5 detik
+                setTimeout(() => {
+                    splashScreen.style.opacity = "0"; // Efek menghilang
+                    setTimeout(() => {
+                        splashScreen.style.display = "none"; // Hilang total
+                        mainContent.style.display = "block"; // Tampilkan website
+                    }, 1000); // Efek fade out
+                }, 2400); // Splash ditampilkan selama 5 detik
+            }
+        });
+    </script>
+ 
+  <!-- Button Activation Script -->
+  <script>
+    function activateButton(button, disease) {
+      const buttons = document.querySelectorAll('.btn-custom');
+      buttons.forEach(btn => btn.classList.remove('btn-active'));
+      button.classList.add('btn-active');
+
+      const diseaseInfo = {
+        blast: {
+          title: "Penyakit Blast pada Padi",
+          description: `
+            Penyakit Blast merupakan salah satu penyakit yang paling merusak pada tanaman padi dan dapat menyebabkan kehilangan hasil panen yang signifikan. Penyakit ini disebabkan oleh jamur <em>Magnaporthe oryzae</em> (sebelumnya dikenal sebagai <em>Pyricularia oryzae</em>), yang menyerang berbagai bagian tanaman, termasuk daun, batang, malai, dan bahkan biji padi.
+            <br><br>
+            <div style="text-align: center;">
+              <img src="{{ url_for('static', filename='assets/img/penyakit/blast.jpg') }}" alt="Blast Example" style="max-width: 100%; height: auto;">
+            </div>
+            <br><br>
+            Gejala Penyakit Blast
+            <ul>
+              <li>Blast Daun (Leaf Blast): Ditandai dengan munculnya bercak berbentuk belah ketupat atau oval, dengan bagian tengah keabu-abuan dan tepi coklat gelap. Jika infeksi semakin parah, bercak-bercak ini dapat menyatu dan menyebabkan daun mengering serta mati.</li>
+              <li>Blast Leher (Neck Blast) atau Blast Malai: Menyerang bagian pangkal malai, menyebabkan jaringan berubah menjadi coklat kehitaman. Malai padi yang terinfeksi tidak dapat berkembang sempurna, sehingga bulir padi menjadi kosong atau hampa.</li>
+            </ul>
+            Faktor Penyebab Penyakit Blast
+            <ul>
+              <li>Cuaca lembab dan suhu tinggi (sekitar 24-28°C) dengan curah hujan tinggi.</li>
+              <li>Pemupukan nitrogen berlebihan, yang membuat tanaman lebih rentan terhadap infeksi.</li>
+              <li>Sistem irigasi yang buruk, yang menyebabkan kelembaban tinggi di sekitar tanaman.</li>
+              <li>Penggunaan varietas padi yang rentan terhadap penyakit blast.</li>
+            </ul>
+            Cara Pengendalian Penyakit Blast
+            <ul>
+              <li>Menggunakan varietas padi yang tahan blast, seperti Ciherang atau Inpari 33.</li>
+              <li>Mengatur pola tanam dan rotasi tanaman dengan tanaman lain untuk mengurangi sumber infeksi.</li>
+              <li>Mengatur penggunaan pupuk nitrogen, tidak berlebihan agar tidak memicu pertumbuhan jamur.</li>
+              <li>Menjaga sanitasi lahan dengan membersihkan sisa-sisa tanaman yang terinfeksi.</li>
+              <li>Penggunaan fungisida berbahan aktif seperti triazole atau strobilurin jika serangan sudah parah.</li>
+            </ul>
+            <p>Agar pengguna lebih paham tentang blast serta penanganannya, artikel ini bisa sangat membantu <a href="https://distan.bulelengkab.go.id/informasi/detail/artikel/35_blas-padi-pyricularia-oryzae-dan-agen-pengendalinya" style="color: #28a745;">klik disini</a>.</p>
+          `
+        },
+        blight: {
+          title: "Penyakit Blight pada Padi",
+          description: `
+            Penyakit Blight pada padi adalah salah satu penyakit yang dapat menyebabkan kerusakan parah pada tanaman dan menurunkan hasil panen secara signifikan. Penyakit ini disebabkan oleh bakteri <em>Xanthomonas oryzae</em> pv. <em>oryzae</em>, yang menyerang jaringan tanaman, terutama pada daun dan batang padi. Blight sering muncul di daerah dengan kelembaban tinggi dan dapat menyebar dengan cepat melalui air hujan, angin, dan serangga.
+            <br><br>
+            <div style="text-align: center;">
+              <img src="{{ url_for('static', filename='assets/img/penyakit/blight.jpg') }}" alt="Blight Example" style="max-width: 100%; height: auto;">
+            </div>
+            Gejala Penyakit Blight
+            <ul>
+              <li> Blight Daun (Bacterial Leaf Blight): Ditandai dengan bercak kuning kecoklatan yang mulai dari tepi daun dan menyebar ke bagian tengah. Daun yang terinfeksi tampak kering dan menggulung, seolah terbakar. Jika infeksi semakin parah, tanaman menjadi layu dan mati lebih awal.</li>
+              <li> Blight Batang: Menyebabkan batang menjadi berwarna coklat kehitaman dan rapuh. Menghambat aliran nutrisi dalam tanaman, menyebabkan tanaman tumbuh kerdil. Jika terjadi pada fase generatif, dapat mengurangi jumlah dan kualitas bulir padi.</li>
+            </ul>
+            Faktor Penyebab Penyakit Blight
+            <ul>
+              <li> Cuaca dan Lingkungan: Kelembaban tinggi dengan curah hujan yang sering dapat meningkatkan penyebaran bakteri.</li>
+              <li> Varietas Rentan: Penggunaan bibit padi yang tidak tahan terhadap penyakit blight lebih mudah terinfeksi.</li>
+              <li> Irigasi yang Buruk: Genangan air dapat menjadi media penyebaran bakteri lebih cepat.</li>
+              <li> Serangga Vektor: Hama seperti wereng dapat membantu penyebaran penyakit dari satu tanaman ke tanaman lainnya.</li>
+            </ul>
+            Cara Pengendalian Penyakit Blight
+            <ul>
+              <li> Menggunakan varietas padi tahan blight, seperti Inpari 32 atau IR64.</li>
+              <li> Mengatur sistem irigasi agar tidak ada genangan air yang dapat mempercepat penyebaran bakteri.</li>
+              <li> Rotasi tanaman untuk mengurangi risiko akumulasi bakteri di lahan pertanian.</li>
+              <li> Pembersihan lahan dengan membuang sisa tanaman yang terinfeksi untuk mencegah penyebaran.</li>
+              <li> Penggunaan bakterisida berbahan aktif tembaga atau antibiotik agrikultural untuk mengendalikan serangan jika sudah parah.</li>
+            </ul>
+            <p>Untuk memahami lebih lanjut tentang penyakit blight dan cara menanganinya, artikel ini bisa sangat membantu <a href="https://distan.bulelengkab.go.id/informasi/detail/artikel/55_penyakit-hawar-daun-bakteri-pada-tanaman-padi" style="color: #28a745;">klik disini</a>.</p>
+          `
+        },
+        brown_spot: {
+          title: "Penyakit Brown Spot pada Padi",
+          description: `
+            Penyakit Brown Spot atau bercak coklat pada padi adalah salah satu penyakit yang sering menyerang tanaman padi dan dapat menyebabkan penurunan hasil panen yang signifikan. Penyakit ini disebabkan oleh jamur <em>Helminthosporium oryzae</em> (atau <em>Drechslera oryzae</em>), yang berkembang dengan cepat di kondisi lingkungan yang lembap dan kurang nutrisi. Brown Spot dapat merusak daun, batang, dan bahkan gabah, mengurangi kualitas hasil panen.
+            <br><br>
+            <div style="text-align: center;">
+              <img src="{{ url_for('static', filename='assets/img/penyakit/brown_spot.jpg') }}" alt="Brown Spot Example" style="max-width: 100%; height: auto;">
+            </div>
+            Gejala Penyakit Brown Spot
+            <ul>
+              <li> Bercak Coklat pada Daun: Munculnya bercak-bercak kecil berbentuk oval atau bulat dengan warna coklat tua di permukaan daun. Bercak berkembang menjadi lebih besar dengan bagian tengah berwarna abu-abu dan pinggiran coklat tua. Jika infeksi parah, daun menjadi kering dan tanaman tampak merana.</li>
+              <li> Infeksi pada Gabah: Gabah yang terinfeksi memiliki bercak berwarna coklat kehitaman. Mengurangi kualitas dan daya kecambah benih.</li>
+              <li> Pertumbuhan Tanaman Terhambat: Tanaman padi yang terserang mengalami pertumbuhan yang lambat dan kurang produktif. Bisa menyebabkan "busuk leher" jika menyerang batang saat fase berbunga.</li>
+            </ul>
+            Faktor Penyebab Penyakit Brown Spot
+            <ul>
+              <li> Kelembaban Tinggi: Kondisi lingkungan yang lembap dan suhu hangat (sekitar 16-36°C) mempercepat perkembangan jamur.</li>
+              <li> Tanah Kurang Nutrisi: Kekurangan unsur hara, terutama nitrogen dan kalium, meningkatkan kerentanan tanaman terhadap penyakit.</li>
+              <li> Sistem Irigasi Buruk: Air yang menggenang dapat menjadi media penyebaran spora jamur.</li>
+              <li> Penggunaan Benih yang Terinfeksi: Benih yang sudah terkontaminasi jamur dapat menjadi sumber utama penyebaran penyakit.</li>
+            </ul>
+            Cara Pengendalian Penyakit Brown Spot
+            <ul>
+              <li> Penggunaan Varietas Tahan: Pilih varietas padi yang memiliki ketahanan terhadap penyakit brown spot.</li>
+              <li> Pemupukan Seimbang: Gunakan pupuk dengan kandungan nitrogen, fosfor, dan kalium yang cukup untuk meningkatkan daya tahan tanaman.</li>
+              <li> Rotasi Tanaman: Mengganti jenis tanaman di lahan pertanian dapat membantu mengurangi penyebaran jamur.</li>
+              <li> Penyemprotan Fungisida: Gunakan fungisida berbahan aktif mancozeb atau propiconazole jika serangan sudah meluas.</li>
+              <li> Pembersihan Lahan: Singkirkan sisa-sisa tanaman yang terinfeksi untuk mencegah penyebaran spora ke musim tanam berikutnya.</li>
+            </ul>
+            <p>Untuk memahami lebih lanjut tentang penyakit brown spot dan cara menanganinya, artikel ini bisa sangat membantu <a href="https://distan.bulelengkab.go.id/informasi/detail/artikel/penyakit-bercak-daun-cercospora-pada-tanaman-padi-dan-cara-pengendaliannya-24" style="color: #28a745;">klik disini</a>.</p>
+          `
+        },
+        healthy: {
+          title: "Kondisi Padi Sehat (Healthy)",
+          description: `
+            Padi yang sehat adalah tanaman yang tumbuh optimal tanpa gangguan dari hama, penyakit, atau kekurangan nutrisi. Tanaman padi yang sehat akan memiliki pertumbuhan yang baik, daun hijau segar, batang kuat, serta menghasilkan gabah berkualitas tinggi dengan hasil panen maksimal. Padi yang sehat juga lebih tahan terhadap perubahan cuaca dan faktor lingkungan yang kurang mendukung.
+            <br><br>
+            <div style="text-align: center;">
+              <img src="{{ url_for('static', filename='assets/img/penyakit/healthy.jpg') }}" alt="Healthy Example" style="max-width: 100%; height: auto;">
+            </div>
+            Ciri-ciri Padi Sehat
+            <ul>
+              <li> Daun Hijau dan Segar: Daun padi berwarna hijau cerah tanpa adanya bercak kuning, coklat, atau hitam. Tidak terdapat tanda-tanda pengeringan atau keriting pada tepi daun.</li>
+              <li> Batang Kokoh dan Tidak Busuk: Batang padi tegak lurus, tidak mudah roboh, dan tidak menunjukkan gejala busuk pangkal batang. Tidak ada bercak hitam atau coklat yang menandakan infeksi jamur atau bakteri.</li>
+              <li> Akar yang Kuat dan Sehat: Akar berkembang dengan baik dan tidak menunjukkan tanda-tanda pembusukan atau warna kecoklatan yang tidak normal. Mampu menyerap nutrisi dengan baik dari tanah.</li>
+              <li> Pertumbuhan Optimal: Padi tumbuh dengan tinggi yang merata dan tidak mengalami kerdil. Tidak menunjukkan gejala layu atau menguning akibat kekurangan unsur hara.</li>
+              <li> Gabah Berkualitas Tinggi: Gabah padi memiliki ukuran normal, tidak keriput, dan berisi penuh. Tidak terdapat bercak hitam atau coklat pada gabah yang menandakan infeksi penyakit.</li>
+            </ul>
+            Faktor yang Mendukung Padi Sehat
+            <ul>
+              <li> Pengelolaan Tanah yang Baik: Menggunakan sistem drainase yang baik untuk menghindari genangan air yang dapat memicu pertumbuhan jamur dan bakteri. Pengolahan tanah yang optimal sebelum tanam untuk memastikan nutrisi cukup.</li>
+              <li> Pemupukan Seimbang: Menggunakan pupuk organik dan anorganik sesuai kebutuhan tanaman. Pastikan ketersediaan nitrogen (N), fosfor (P), dan kalium (K) dalam jumlah yang cukup.</li>
+              <li> Sistem Irigasi yang Tepat: Air harus cukup, tetapi tidak berlebihan untuk menghindari pembusukan akar dan penyebaran penyakit. Irigasi teratur untuk menjaga kelembaban tanah sesuai kebutuhan tanaman.</li>
+              <li> Pengendalian Hama dan Penyakit: Melakukan pengamatan rutin terhadap tanaman untuk mendeteksi gejala awal penyakit atau hama. Menggunakan pestisida atau fungisida sesuai kebutuhan dengan dosis yang tepat. Menanam varietas yang tahan terhadap penyakit dan hama tertentu.</li>
+              <li> Rotasi Tanaman: Melakukan pergiliran tanaman dengan jenis lain (misalnya kacang-kacangan) untuk menjaga kesuburan tanah dan mengurangi akumulasi hama serta penyakit.</li>
+              <li> Penanaman dengan Jarak Ideal: Menanam padi dengan jarak yang tidak terlalu rapat agar sirkulasi udara berjalan baik dan kelembaban tidak terlalu tinggi.</li>
+            </ul>
+            <p>Untuk memahami lebih lanjut tentang kondisi padi sehat dan cara menanganinya, artikel ini bisa sangat membantu <a href="https://distrikbantennews.com/2024/01/29/kenali-ciri-ciri-tanaman-padi-yang-subur/" style="color: #28a745;">klik disini</a>.</p>
+          `
+        },
+        tungro: {
+          title: "Penyakit Tungro pada Padi",
+          description: `
+            Penyakit Tungro adalah salah satu penyakit virus yang paling merusak pada tanaman padi dan dapat menyebabkan penurunan hasil panen yang drastis. Penyakit ini disebabkan oleh dua jenis virus, yaitu Rice Tungro Bacilliform Virus (RTBV) dan Rice Tungro Spherical Virus (RTSV), yang ditularkan oleh wereng hijau (<em>Nephotettix virescens</em>). Tungro sangat umum terjadi di daerah tropis dan menjadi ancaman serius bagi produksi padi.
+            <br><br>
+            <div style="text-align: center;">
+              <img src="{{ url_for('static', filename='assets/img/penyakit/tungro.jpg') }}" alt="Tungro Example" style="max-width: 100%; height: auto;">
+            </div>
+            Gejala Penyakit Tungro
+            <ul>
+              <li> Daun Menguning: Daun muda berubah menjadi kuning oranye atau kuning kemerahan, dimulai dari ujung dan menyebar ke pangkal. Warna kuning lebih mencolok pada daun yang lebih tua.</li>
+              <li> Pertumbuhan Tanaman Terhambat: Tanaman yang terserang mengalami kerdil dan pertumbuhan tidak normal. Pelepah daun menjadi lebih pendek dan batang melemah.</li>
+              <li> Produksi Bulir Berkurang: Malai padi yang terinfeksi menjadi kecil dan menghasilkan sedikit bulir. Banyak bulir yang hampa atau tidak terisi sempurna.</li>
+              <li> Infeksi Berat: Jika infeksi terjadi pada fase awal pertumbuhan, tanaman bisa gagal berproduksi sepenuhnya. Penyebaran penyakit yang luas dapat menyebabkan gagal panen di suatu area pertanian.</li>
+            </ul>
+            Faktor Penyebab Penyakit Tungro
+            <ul>
+              <li> Hama Wereng Hijau: Vektor utama penyakit ini adalah wereng hijau yang menyebarkan virus dari satu tanaman ke tanaman lain.</li>
+              <li> Varietas Rentan: Padi yang tidak tahan terhadap virus tungro lebih mudah terinfeksi.</li>
+              <li> Lingkungan Lembap: Kondisi iklim yang lembap dan hangat mendukung perkembangbiakan wereng hijau.</li>
+              <li> Monokultur: Penanaman padi secara terus-menerus tanpa rotasi tanaman meningkatkan risiko penyebaran tungro.</li>
+            </ul>
+            Cara Pengendalian Penyakit Tungro
+            <ul>
+              <li> Penggunaan Varietas Tahan: Pilih varietas padi yang tahan tungro seperti Inpari 36 atau Inpari 37.</li>
+              <li> Pengendalian Wereng Hijau: Lakukan pengamatan rutin dan gunakan insektisida jika populasi wereng meningkat.</li>
+              <li> Rotasi Tanaman: Tanam tanaman selain padi setelah panen untuk mengurangi populasi wereng.</li>
+              <li> Sanitasi Lahan: Singkirkan tanaman yang terinfeksi untuk mencegah penyebaran lebih lanjut.</li>
+              <li> Penyemprotan Insektisida: Gunakan insektisida berbahan aktif imidakloprid atau tiametoksam untuk mengendalikan hama vektor.</li>
+            </ul>
+            <p>Untuk memahami lebih lanjut tentang penyakit tungro dan cara menanganinya, artikel ini bisa sangat membantu <a href="https://pertanian.sultengprov.go.id/mengenal-penyakit-tungro-gejala-dan-cara-pengendalian/" style="color: #28a745;">klik disini</a>.</p>
+          `
+        }
+      };
+
+      const info = diseaseInfo[disease];
+      if (info) {
+        document.getElementById('disease-title').innerHTML = info.title;
+        document.getElementById('disease-description').innerHTML = info.description;
+        document.getElementById('disease-info').style.display = 'block';
+      }
+    }
+  </script>
+</body>
+
+</html>
